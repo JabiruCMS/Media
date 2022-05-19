@@ -1,5 +1,5 @@
 {
-  "name": "idavoll/media-module",
+  "name": "jabirucms/media-module",
   "type": "asgard-module",
   "description": "Media module for AsgardCMS. Handles the media library.",
   "keywords": [
@@ -24,10 +24,8 @@
     "source": "https://github.com/AsgardCms/Media"
   },
   "require": {
-    "php": "^7.1.3",
     "composer/installers": "~1.0",
     "intervention/image": "^2.5",
-    "idavoll/tag-module": "4.0.x-dev",
     "guzzlehttp/psr7": "^1.3"
   },
   "require-dev": {
