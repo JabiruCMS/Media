@@ -18,12 +18,16 @@ class MaxFolderSizeRule implements Rule
      */
     public function passes($attribute, $value)
     {
+        $maxDirectorySize = config('asgard.media.config.max-total-size');
+        if ($maxDirectorySize === null) {
+            return true;
+        }
         $mediaPath = public_path(config('asgard.media.config.files-path'));
         $folderSize = $this->getDirSize($mediaPath);
 
         preg_match('/([0-9]+)/', $folderSize, $match);
 
-        return ($match[0] + $value->getSize()) < config('asgard.media.config.max-total-size');
+        return ($match[0] + $value->getSize()) < $maxDirectorySize;
     }
 
     /**
