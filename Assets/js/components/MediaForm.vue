@@ -66,8 +66,8 @@
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div v-if="media.is_image">
-                        <img :src="media.path" alt="" class="img-responsive">
+                    <div v-if="is_image">
+                        <img :src="image_path" alt="" class="img-responsive">
                     </div>
                     <div v-else>
                         <i v-if="media.fa_icon" :class="media.fa_icon" class="fa fa-5x"></i>
@@ -106,6 +106,8 @@
         },
         data() {
             return {
+                is_image: true,
+                image_path: null,
                 media: window._(this.locales)
                     .keys()
                     .map(locale => [locale, {
@@ -146,6 +148,9 @@
                 this.loading = true;
                 axios.get(route('api.media.media.find', { media: this.$route.params.mediaId }))
                     .then((response) => {
+                        this.is_image = response.data.data.is_image;
+                        this.image_path = response.data.data.path;
+
                         this.loading = false;
                         this.media = response.data.data;
                     });
