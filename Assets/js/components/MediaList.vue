@@ -182,6 +182,7 @@
         watch: {
             '$route': 'fetchMediaData',
         },
+
         mounted() {
             if (window.AsgardCMS.filesystem === 's3') {
                 this.canEditFolders = false;
@@ -216,7 +217,10 @@
                     folder_id: this.folderId,
                 };
 
-                axios.get(route('api.media.all-vue', { ...properties, ...customProperties }))
+                const allProperties = { ...properties, ...customProperties };
+                this.folderId = parseInt(allProperties.folder_id);
+
+                axios.get(route('api.media.all-vue', allProperties))
                     .then((response) => {
                         this.tableIsLoading = false;
                         this.media = response.data.data;
