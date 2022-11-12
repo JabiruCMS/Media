@@ -16,7 +16,8 @@ export default {
             if (event.id !== null && event.id !== undefined) {
                 this.$set(entity.medias_single, event.zone, event.id);
             } else {
-                this.$delete(entity.medias_single, event.zone);
+                this.$set(entity.medias_single, event.zone, 0);
+                // this.$delete(entity.medias_single, event.zone);
             }
         },
     },
