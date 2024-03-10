@@ -2,15 +2,16 @@
 
 namespace Modules\Media\Support\Traits;
 
+use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Modules\Media\Entities\File;
 
 trait MediaRelation
 {
     /**
      * Make the Many To Many Morph To Relation
-     * @return object
+     * @return object|MorphToMany
      */
-    public function files()
+    public function files(): MorphToMany
     {
         return $this->morphToMany(File::class, 'imageable', 'media__imageables')->withPivot('zone', 'id')->withTimestamps()->orderBy('order');
     }

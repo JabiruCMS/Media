@@ -6,4 +6,5 @@ return [
     'folder updated' => 'Složka byla upravena',
     'folder deleted' => 'Složka byla smazána',
     'selected items deleted' => 'Vybrané položky byly smazány',
+    'file selected' => 'Soubor :filename byl vybrán',
 ];

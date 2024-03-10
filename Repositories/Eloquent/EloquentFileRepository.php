@@ -71,7 +71,7 @@ class EloquentFileRepository extends EloquentBaseRepository implements FileRepos
         return $file;
     }
 
-    private function getPathFor(string $filename, int $folderId)
+    public function getPathFor(string $filename, int $folderId)
     {
         if ($folderId !== 0) {
             $parent = app(FolderRepository::class)->findFolder($folderId);

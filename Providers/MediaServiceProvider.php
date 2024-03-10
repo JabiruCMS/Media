@@ -71,6 +71,7 @@ class MediaServiceProvider extends ServiceProvider
 
         $this->app['events']->listen(LoadingBackendTranslations::class, function (LoadingBackendTranslations $event) {
             $event->load('media', Arr::dot(trans('media::media')));
+            $event->load('media-messages', Arr::dot(trans('media::messages')));
             $event->load('folders', Arr::dot(trans('media::folders')));
         });
 
