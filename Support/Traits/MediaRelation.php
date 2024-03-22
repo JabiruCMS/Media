@@ -3,8 +3,12 @@
 namespace Modules\Media\Support\Traits;
 
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
+use Illuminate\Support\Collection;
 use Modules\Media\Entities\File;
 
+/**
+ * @property Collection<File> $files
+ */
 trait MediaRelation
 {
     /**
