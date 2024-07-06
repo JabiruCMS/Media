@@ -7,9 +7,9 @@ return [
     |--------------------------------------------------------------------------
     | Choose one or more of the filesystems you configured
     | in app/config/filesystems.php
-    | Supported: "local", "s3"
+    | Supported: "local", "s3", "do"
     */
-    'filesystem' => 'local',
+    'filesystem' => env('JABIRU_MEDIA_FILESYSTEM', 'local'),
     /*
     |--------------------------------------------------------------------------
     | The path where the media files will be uploaded
@@ -48,6 +48,9 @@ return [
     | No custom sidebar: null
     */
     'custom-sidebar' => null,
+
+    /* default background color for transparent images with explicitly defined background */
+    'default-bg-color' => '#ffffff',
 
     /*
     |--------------------------------------------------------------------------
