@@ -257,7 +257,12 @@ class Imagy
             $thumbnail = $thumbnail->name();
         }
         $filenameWithoutPrefix = $this->removeConfigPrefix($path->getRelativeUrl());
-        $filename = substr(strrchr($filenameWithoutPrefix, '/'), 1);
+        if (str_contains($filenameWithoutPrefix, '/')) {
+            $filename = substr(strrchr($filenameWithoutPrefix, '/'), 1);
+        } else {
+            $filename = $filenameWithoutPrefix;
+        }
+
         $folders = str_replace($filename, '', $filenameWithoutPrefix);
 
         if ($filename === false) {
